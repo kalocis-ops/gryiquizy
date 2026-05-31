@@ -6,7 +6,7 @@
   <title>Lekcja na Autopilocie | Klaudia Rogalska</title>
   <meta name="description" content="Opanuj 5 platform quiz-AI w 120 minut i generuj angażujące aktywności na każdą lekcję. Kurs dla nauczycieli — Blooket, Gimkit, Quizwhizzer, Baamboozle, Waygroove." />
 
-  <link rel="icon" type="image/png" href="ANO_podstawowa_jasna_pion.png" />
+  <link rel="icon" type="image/png" href="https://gemini.klaudiarogalska.pl/ANO_podstawowa_jasna_pion.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -15,10 +15,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #050505;
-      --bg2:       #0a0a0a;
-      --bg3:       #0f0f0f;
-      --bg4:       #141414;
+      --bg:        #09091f;
+      --bg2:       #0d0e2a;
+      --bg3:       #111333;
+      --bg4:       #161840;
       --navy:      #20224d;
       --navy-mid:  #2a2d62;
       --green:     #3ab07f;
@@ -27,16 +27,18 @@
       --green-border: rgba(58,176,127,0.25);
       --muted:     rgba(255,255,255,0.45);
       --text:      rgba(255,255,255,0.9);
-      --border:    rgba(255,255,255,0.07);
+      --border:    rgba(255,255,255,0.08);
       --grad:      linear-gradient(135deg, #3ab07f 0%, #51ebac 100%);
       --grad-nav:  linear-gradient(135deg, #20224d 0%, #3ab07f 100%);
+      --grad-bg:   linear-gradient(160deg, #07081c 0%, #0d1035 40%, #101230 100%);
       --radius:    16px;
-      --shadow:    0 24px 64px rgba(0,0,0,0.5);
+      --shadow:    0 24px 64px rgba(0,0,0,0.6);
     }
 
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      background: var(--bg);
+      background: var(--grad-bg);
+      background-attachment: fixed;
       color: var(--text);
       font-family: 'Source Sans 3', sans-serif;
       line-height: 1.65;
@@ -162,7 +164,7 @@
       align-items: center;
       gap: 64px;
       padding: 160px 0 80px;
-      background: var(--bg);
+      background: transparent;
       position: relative;
       overflow: hidden;
     }
@@ -170,14 +172,14 @@
       content: '';
       position: absolute; top: -200px; right: -200px;
       width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(58,176,127,.07), transparent 70%);
+      background: radial-gradient(circle, rgba(58,176,127,.09), transparent 70%);
       pointer-events: none;
     }
     .hero::after {
       content: '';
       position: absolute; bottom: -100px; left: -100px;
       width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(32,34,77,.15), transparent 70%);
+      background: radial-gradient(circle, rgba(32,34,77,.25), transparent 70%);
       pointer-events: none;
     }
     @media (max-width: 860px) {
@@ -318,7 +320,7 @@
     /* ─── PLATFORMS BAR ─── */
     .platforms-bar {
       padding: 32px 0;
-      background: var(--bg2);
+      background: rgba(255,255,255,0.02);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -333,7 +335,7 @@
     }
     .platform-chip {
       display: flex; align-items: center; gap: 8px;
-      padding: 8px 20px; background: var(--bg3);
+      padding: 8px 20px; background: rgba(255,255,255,0.04);
       border: 1px solid var(--border); border-radius: 100px;
       font-family: 'Montserrat', sans-serif;
       font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.7);
@@ -341,7 +343,7 @@
     .platform-chip__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
     /* ─── INSTRUCTOR ─── */
-    .instructor { background: var(--bg2); padding: 100px 0; }
+    .instructor { background: rgba(255,255,255,0.02); padding: 100px 0; border-top: 1px solid var(--border); }
     .instructor__heading { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: 56px; }
     .sticky-scroll__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     @media (max-width: 860px) { .sticky-scroll__inner { grid-template-columns: 1fr; gap: 0; } }
@@ -377,7 +379,7 @@
     }
 
     /* ─── PROBLEM ─── */
-    .problem { padding: 100px 0; background: var(--bg); }
+    .problem { padding: 100px 0; background: transparent; border-top: 1px solid var(--border); }
     .problem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     @media (max-width: 768px) { .problem__grid { grid-template-columns: 1fr; } }
     .pain-item {
@@ -410,12 +412,12 @@
     @media (max-width: 768px) { .problem__bridge { padding: 32px 28px; } }
 
     /* ─── PROGRAM ─── */
-    .program { padding: 100px 0; background: var(--bg2); }
+    .program { padding: 100px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
     .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
     @media (max-width: 860px) { .modules-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 560px) { .modules-grid { grid-template-columns: 1fr; } }
     .mod-card {
-      background: var(--bg3); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
       border-radius: 20px; padding: 32px 28px;
       position: relative; overflow: hidden;
       transition: border-color .25s, box-shadow .3s, transform .3s;
@@ -440,10 +442,10 @@
     .mod-card__desc { font-size: .9rem; color: var(--muted); line-height: 1.65; }
 
     /* ─── BONUS ─── */
-    .bonus { padding: 80px 0; background: var(--bg); }
+    .bonus { padding: 80px 0; background: transparent; border-top: 1px solid var(--border); }
     .bonus__card {
       display: flex; align-items: center; gap: 40px;
-      background: var(--bg2); border: 1px solid var(--green-border);
+      background: rgba(58,176,127,0.07); border: 1px solid var(--green-border);
       border-radius: 24px; padding: 48px 52px; flex-wrap: wrap;
       position: relative; overflow: hidden;
     }
@@ -464,11 +466,11 @@
     .bonus__text { font-size: .95rem; color: var(--muted); line-height: 1.65; }
 
     /* ─── TESTIMONIALS ─── */
-    .testimonials { padding: 100px 0; background: var(--bg2); }
+    .testimonials { padding: 100px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
     .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 56px; }
     @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr; } }
     .stat-card {
-      background: var(--bg3); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
       border-radius: 20px; padding: 32px 24px; text-align: center;
     }
     .stat-card__num {
@@ -482,7 +484,7 @@
     @media (max-width: 860px) { .ss-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 540px) { .ss-grid { grid-template-columns: 1fr; } }
     .ss-card {
-      background: var(--bg3); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
       border-radius: 16px; padding: 22px 20px;
       font-size: .88rem; line-height: 1.65;
       transition: transform .25s, box-shadow .25s;
@@ -493,7 +495,7 @@
     .ss-author { font-family: 'Montserrat', sans-serif; font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.6); }
 
     /* ─── CTA MID ─── */
-    .cta-mid { padding: 80px 0; background: var(--bg); }
+    .cta-mid { padding: 80px 0; background: transparent; border-top: 1px solid var(--border); }
     .cta-mid__box {
       background: var(--navy); border-radius: 28px; padding: 64px 56px;
       display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
@@ -509,11 +511,11 @@
     .cta-mid__sub { font-size: .95rem; color: rgba(255,255,255,.45); }
 
     /* ─── PRICING ─── */
-    .pricing { padding: 100px 0; background: var(--bg2); }
+    .pricing { padding: 100px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
     .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; max-width: 860px; }
     @media (max-width: 860px) { .pricing__grid { grid-template-columns: 1fr; max-width: 480px; } }
     .plan {
-      background: var(--bg3); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
       border-radius: 24px; padding: 36px 32px; position: relative;
     }
     .plan--featured { background: var(--navy); border-color: var(--green-border); }
@@ -555,7 +557,7 @@
     .plan__guarantee { font-size: .78rem; color: var(--muted); text-align: center; }
 
     /* ─── FAQ ─── */
-    .faq { padding: 100px 0; background: var(--bg); }
+    .faq { padding: 100px 0; background: transparent; border-top: 1px solid var(--border); }
     .faq-list { max-width: 720px; margin: 56px auto 0; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q {
@@ -579,7 +581,7 @@
     .faq-item.open .faq-a { max-height: 400px; padding-bottom: 22px; }
 
     /* ─── FINAL CTA ─── */
-    .final-cta { padding: 80px 0 100px; background: var(--bg2); }
+    .final-cta { padding: 80px 0 100px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
     .final-cta__box {
       background: var(--navy); border-radius: 32px; padding: 80px 56px;
       text-align: center; position: relative; overflow: hidden;
@@ -616,8 +618,40 @@
     .final-cta__meta span { color: var(--green); }
     @media (max-width: 480px) { .final-cta__box { padding: 52px 24px; } }
 
+    /* ─── MODAL PRIVACY ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.75);
+      backdrop-filter: blur(8px); z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: #0d0e2a; border: 1px solid var(--border);
+      border-radius: 20px; width: 100%; max-width: 740px; max-height: 85vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6);
+      transform: translateY(20px) scale(.97);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+    }
+    .modal-overlay.open .modal-box { transform: none; }
+    .modal-head {
+      padding: 24px 28px 18px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+    }
+    .modal-head h2 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800; color: #fff; }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,.08); cursor: pointer; font-size: 1.1rem; color: rgba(255,255,255,.6);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-close:hover { background: rgba(255,255,255,.15); color: #fff; }
+    .modal-body { padding: 24px 28px; overflow-y: auto; font-size: .88rem; color: var(--muted); line-height: 1.75; }
+    .modal-body h3 { font-family: 'Montserrat', sans-serif; font-size: .9rem; font-weight: 700; color: rgba(255,255,255,.8); margin: 20px 0 8px; }
+    .modal-body p { margin-bottom: 10px; }
+
     /* ─── FOOTER ─── */
-    footer { background: #020205; padding: 48px 0; border-top: 1px solid var(--border); }
+    footer { background: rgba(0,0,0,.3); padding: 48px 0; border-top: 1px solid var(--border); }
     .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
     .footer__logo img { height: 40px; width: auto; display: block; filter: brightness(0) invert(1); opacity: .5; }
     .footer__links { display: flex; gap: 24px; font-size: .82rem; color: rgba(255,255,255,.25); }
@@ -667,7 +701,7 @@
   <div class="container">
     <div class="nav__inner">
       <div class="nav__logo">
-        <img src="ANO_podstawowa_jasna_pion.png" alt="Akademia Nauczyciela Online">
+        <img src="https://gemini.klaudiarogalska.pl/ANO_podstawowa_jasna_pion.png" alt="Akademia Nauczyciela Online">
       </div>
       <div class="nav__links">
         <a href="#program">Program</a>
@@ -720,7 +754,7 @@
 
     </div>
 
-    <div class="hero__right" style="padding: 0 max(28px, calc((100vw - 1160px)/2 + 28px)) 0 0; position:relative; z-index:1">
+    <div class="hero__right" style="padding: 0 max(28px, calc((100vw - 1160px)/2 + 28px)) 0 0; position:relative; z-index:1; display:flex; align-items:center; justify-content:center;">
 
       <div class="hero__mockup">
         <div class="hero__mockup-bar">
@@ -798,7 +832,7 @@
       <div class="sticky-scroll__photo">
         <div class="sticky-photo-frame">
           <div class="sticky-photo-bg"></div>
-          <img src="2O9A0688.jpg" alt="Klaudia Rogalska-Kalota" class="sticky-photo-img">
+          <img src="https://gemini.klaudiarogalska.pl/2O9A0688.jpg" alt="Klaudia Rogalska-Kalota" class="sticky-photo-img">
         </div>
         <div class="sticky-photo-caption">
           <strong>Klaudia Rogalska-Kalota</strong>
@@ -1107,17 +1141,47 @@
   <div class="container">
     <div class="footer__inner">
       <div class="footer__logo">
-        <img src="ANO_podstawowa_jasna_pion.png" alt="Akademia Nauczyciela Online">
+        <img src="https://gemini.klaudiarogalska.pl/ANO_podstawowa_jasna_pion.png" alt="Akademia Nauczyciela Online" style="filter:brightness(0) invert(1);opacity:.5;height:40px;width:auto;display:block">
       </div>
       <div class="footer__links">
         <a href="#program">Program</a>
         <a href="#cennik">Cennik</a>
         <a href="#faq">FAQ</a>
+        <a href="#" id="open-privacy">Polityka prywatności</a>
       </div>
     </div>
     <p class="footer__copy">© 2026 Akademia Nauczyciela Online · Klaudia Rogalska-Kalota · Wszelkie prawa zastrzeżone</p>
   </div>
 </footer>
+
+<!-- ═══ MODAL: POLITYKA PRYWATNOŚCI ═══ -->
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2>Polityka prywatności</h2>
+      <button class="modal-close" id="close-privacy">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>Administrator danych</h3>
+      <p>Administratorem danych osobowych jest Klaudia Rogalska-Kalota, prowadząca działalność pod nazwą Akademia Nauczyciela Online. Kontakt: kontakt@klaudiarogalska.pl</p>
+
+      <h3>Zakres i cel przetwarzania</h3>
+      <p>Dane osobowe (imię, adres e-mail) zbierane są wyłącznie w celu realizacji zamówienia oraz komunikacji związanej z kursem. Podstawą przetwarzania jest art. 6 ust. 1 lit. b RODO (wykonanie umowy).</p>
+
+      <h3>Pliki cookies</h3>
+      <p>Serwis korzysta z plików cookies niezbędnych do jego działania. Cookies analityczne (Google Analytics) są używane wyłącznie za Twoją zgodą. Możesz zarządzać cookies w ustawieniach przeglądarki.</p>
+
+      <h3>Prawa użytkownika</h3>
+      <p>Przysługuje Ci prawo dostępu do danych, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych oraz wniesienia sprzeciwu. Możesz też wnieść skargę do Prezesa UODO (uodo.gov.pl).</p>
+
+      <h3>Okres przechowywania</h3>
+      <p>Dane przechowujemy przez czas realizacji zamówienia i okres wymagany przepisami podatkowymi (5 lat).</p>
+
+      <h3>Kontakt</h3>
+      <p>W sprawach dotyczących danych osobowych możesz kontaktować się pod adresem: kontakt@klaudiarogalska.pl</p>
+    </div>
+  </div>
+</div>
 
 <script>
   // ── TIMER ──
@@ -1182,6 +1246,15 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+  // ── PRIVACY MODAL ──
+  const modalPrivacy = document.getElementById('modal-privacy');
+  document.getElementById('open-privacy').addEventListener('click', e => {
+    e.preventDefault();
+    modalPrivacy.classList.add('open');
+  });
+  document.getElementById('close-privacy').addEventListener('click', () => modalPrivacy.classList.remove('open'));
+  modalPrivacy.addEventListener('click', e => { if (e.target === modalPrivacy) modalPrivacy.classList.remove('open'); });
 
   // ── INSTRUCTOR STICKY SCROLL ──
   const items = document.querySelectorAll('.sticky-item');
