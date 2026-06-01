@@ -193,31 +193,39 @@
     }
 
     /* ─── HERO ENTRANCE ANIMATIONS ─── */
-    @keyframes heroFadeUp {
-      from { opacity: 0; transform: translateY(36px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @keyframes hiPop {
+      0%   { opacity: 0; transform: scale(.4) translateY(24px); }
+      65%  { opacity: 1; transform: scale(1.06) translateY(-4px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
     }
-    @keyframes heroPop {
-      from { opacity: 0; transform: scale(.7); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    @keyframes heroSlideRight {
-      from { opacity: 0; transform: translateX(60px) scale(.95); }
-      to   { opacity: 1; transform: translateX(0) scale(1); }
+    @keyframes hiPopRight {
+      0%   { opacity: 0; transform: scale(.5) translateX(40px); }
+      65%  { opacity: 1; transform: scale(1.04) translateX(-6px); }
+      100% { opacity: 1; transform: scale(1) translateX(0); }
     }
 
-    .hi-1, .hi-2, .hi-3, .hi-4, .hi-5, .hi-6 {
+    .hi-1, .hi-2, .hi-3, .hi-4, .hi-5 {
       opacity: 0;
+      animation-name: hiPop;
       animation-fill-mode: both;
-      animation-timing-function: cubic-bezier(.22, 1, .36, 1);
-      animation-duration: .7s;
+      animation-timing-function: cubic-bezier(.34, 1.56, .64, 1);
+      animation-duration: .55s;
     }
-    .hi-1 { animation-name: heroPop;       animation-delay: .05s; }
-    .hi-2 { animation-name: heroFadeUp;    animation-delay: .18s; }
-    .hi-3 { animation-name: heroFadeUp;    animation-delay: .32s; }
-    .hi-4 { animation-name: heroFadeUp;    animation-delay: .44s; }
-    .hi-5 { animation-name: heroFadeUp;    animation-delay: .56s; }
-    .hi-6 { animation-name: heroSlideRight; animation-delay: .22s; animation-duration: .85s; }
+    .hi-1 { animation-delay: .05s; }
+    .hi-2 { animation-delay: .16s; }
+    .hi-3 { animation-delay: .26s; }
+    .hi-4 { animation-delay: .36s; }
+    .hi-5 { animation-delay: .46s; }
+
+    /* mockup: wrapper animuje, img ma float osobno */
+    .hi-6 {
+      opacity: 0;
+      animation-name: hiPopRight;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(.34, 1.56, .64, 1);
+      animation-duration: .65s;
+      animation-delay: .12s;
+    }
 
     .hero__badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -325,7 +333,7 @@
 
     .hero__right { position: relative; z-index: 1; }
     .hero__mockup-img {
-      width: 110%; max-width: 820px;
+      width: 100%; max-width: 680px;
       border-radius: 20px;
       box-shadow: 0 24px 60px rgba(0,0,0,.35);
       display: block;
@@ -1006,7 +1014,9 @@
 
     <div class="hero__right" style="padding: 0 max(28px, calc((100vw - 1160px)/2 + 28px)) 0 0; position:relative; z-index:1; display:flex; align-items:center; justify-content:center;">
 
-      <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img hi-6">
+      <div class="hi-6" style="width:100%">
+        <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
+      </div>
 
     </div>
   </div>
