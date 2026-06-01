@@ -332,12 +332,18 @@
     .stars { color: #fbbf24; letter-spacing: 2px; font-size: .88rem; }
 
     .hero__right { position: relative; z-index: 1; }
+    .hero__mockup-frame {
+      display: inline-block; width: 100%;
+      border-radius: 24px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(200,224,255,0.10) 100%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.18), 0 0 48px rgba(255,255,255,0.08), 0 32px 72px rgba(0,0,0,0.45);
+      animation: floatA 6s ease-in-out infinite;
+    }
     .hero__mockup-img {
       width: 100%; max-width: 680px;
-      border-radius: 20px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      border-radius: 16px;
       display: block;
-      animation: floatA 6s ease-in-out infinite;
     }
 
     .hero__float-card {
@@ -1041,7 +1047,9 @@
     <div class="hero__right" style="padding: 0 max(28px, calc((100vw - 1160px)/2 + 28px)) 0 0; position:relative; z-index:1; display:flex; align-items:center; justify-content:center;">
 
       <div class="hi-6" style="width:100%">
-        <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
+        <div class="hero__mockup-frame">
+          <img src="mockupgry.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
+        </div>
       </div>
 
     </div>
@@ -1392,7 +1400,7 @@
           <li><span class="plan__check">✓</span> Dostęp do materiałów na zawsze</li>
         </ul>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKr5IE1hBd4Utq4nkevUiY" class="plan__cta" target="_blank" rel="noopener">Kupuję Szybki Start →</a>
-        <p class="plan__guarantee">🔒 Bezpieczna płatność · Faktura VAT</p>
+        <p class="plan__guarantee">🔒 Bezpieczna płatność</p>
       </div>
 
       <div class="plan plan--featured">
@@ -1407,7 +1415,7 @@
           <li><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szk.</li>
         </ul>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKusIE1hBd4UtqARQshrwl" class="plan__cta" target="_blank" rel="noopener">Wybieram Nowoczesny Nauczyciel →</a>
-        <p class="plan__guarantee" style="color:rgba(255,255,255,.25)">🔒 Bezpieczna płatność · Faktura VAT</p>
+        <p class="plan__guarantee" style="color:rgba(255,255,255,.25)">🔒 Bezpieczna płatność</p>
       </div>
 
     </div>
@@ -1472,7 +1480,7 @@
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKr5IE1hBd4Utq4nkevUiY" class="btn btn--green" target="_blank" rel="noopener">Kupuję Szybki Start — 97 zł →</a>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKusIE1hBd4UtqARQshrwl" class="btn btn--dark" target="_blank" rel="noopener">Nowoczesny Nauczyciel — 297 zł</a>
       </div>
-      <p class="final-cta__meta">🔒 Bezpieczna płatność · Faktura VAT · <span>Dostęp od razu</span></p>
+      <p class="final-cta__meta">🔒 Bezpieczna płatność</p>
     </div>
   </div>
 </section>
