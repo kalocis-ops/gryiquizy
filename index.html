@@ -549,8 +549,13 @@
       border-color: rgba(255,255,255,0.1);
     }
     .modules-grid .mod-card:nth-child(even) {
-      background: #1a5c43;
-      border-color: rgba(81,235,172,0.35);
+      background: #3ab07f;
+      border-color: rgba(255,255,255,0.2);
+    }
+    .modules-grid .mod-card:nth-child(even) .mod-card__title { color: #fff; }
+    .modules-grid .mod-card:nth-child(even) .mod-card__desc { color: rgba(255,255,255,0.85); }
+    .modules-grid .mod-card:nth-child(even) .step-badge {
+      background: rgba(0,0,0,0.15); border-color: rgba(255,255,255,0.2); color: #fff;
     }
     @media (max-width: 860px) {
       .modules-grid { grid-template-columns: 1fr 1fr; }
