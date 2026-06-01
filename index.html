@@ -778,6 +778,29 @@
     .plan__cta:hover { opacity: .9; transform: translateY(-1px); }
     .plan__guarantee { font-size: .78rem; color: var(--muted); text-align: center; }
 
+    /* ─── PLAN BONUS BOX ─── */
+    .plan__bonus-box {
+      background: linear-gradient(135deg, rgba(58,176,127,0.18) 0%, rgba(81,235,172,0.08) 100%);
+      border: 1px solid rgba(81,235,172,0.45);
+      border-radius: 14px; padding: 16px 18px;
+      margin: 0 0 20px;
+    }
+    .plan__bonus-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .65rem; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--green-l); margin-bottom: 6px;
+    }
+    .plan__bonus-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem; font-weight: 900;
+      color: #fff; margin-bottom: 4px;
+    }
+    .plan__bonus-val {
+      font-size: .8rem; color: rgba(255,255,255,.45);
+    }
+    .plan__bonus-val strong { color: var(--green-l); font-weight: 700; }
+
     /* ─── FAQ ─── */
     .faq { padding: 100px 0; background: transparent; border-top: 1px solid var(--border); }
     .faq-list { max-width: 720px; margin: 56px auto 0; }
@@ -1408,9 +1431,15 @@
         <div class="plan__name">Pakiet Nowoczesny Nauczyciel</div>
         <div class="plan__amount">297 zł</div>
         <div class="plan__value" style="color:rgba(255,255,255,.35)">wartość 479 zł</div>
+
+        <div class="plan__bonus-box">
+          <div class="plan__bonus-tag">🎓 Dodatkowy kurs w cenie</div>
+          <div class="plan__bonus-name">AI w edukacji 2.0</div>
+          <div class="plan__bonus-val">wartość regularna: <strong>479 zł</strong></div>
+        </div>
+
         <ul class="plan__features">
           <li><span class="plan__check">✓</span> Wszystko z Pakietu Szybki Start</li>
-          <li><span class="plan__check">✓</span> Kurs „AI w edukacji 2.0" (wartość 479 zł)</li>
           <li><span class="plan__check">✓</span> Automatyzacja biurokracji szkolnej z AI</li>
           <li><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szk.</li>
         </ul>
