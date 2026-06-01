@@ -730,9 +730,8 @@
 
     /* ─── PRICING ─── */
     .pricing { padding: 100px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
-    .pricing__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 56px; max-width: 1160px; }
-    @media (max-width: 960px) { .pricing__grid { grid-template-columns: 1fr 1fr; max-width: 720px; } }
-    @media (max-width: 600px) { .pricing__grid { grid-template-columns: 1fr; max-width: 480px; } }
+    .pricing__grid { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; margin-top: 56px; max-width: 1160px; }
+    @media (max-width: 960px) { .pricing__grid { grid-template-columns: 1fr; max-width: 600px; } }
     .plan--installment {
       background: linear-gradient(145deg, #1a1650 0%, #251a6a 100%);
       border-color: rgba(168,139,250,0.55);
@@ -750,6 +749,33 @@
     }
     .plan__install-total {
       font-size: .82rem; color: rgba(168,139,250,.7); margin-bottom: 28px;
+    }
+    .plan__old-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .95rem; font-weight: 600;
+      color: rgba(255,255,255,.3);
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+    .plans-group {
+      position: relative;
+      border: 1px solid rgba(81,235,172,0.25);
+      border-radius: 28px;
+      padding: 48px 20px 20px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .plans-group__label {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      white-space: nowrap;
+      background: var(--bg2);
+      border: 1px solid rgba(81,235,172,0.3);
+      border-radius: 100px; padding: 4px 18px;
+      font-family: 'Montserrat', sans-serif; font-size: .68rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    @media (max-width: 600px) {
+      .plans-group { grid-template-columns: 1fr; padding: 44px 16px 16px; }
     }
     .plan {
       background: rgba(81,235,172,0.05); border: 1px solid var(--border);
@@ -1433,6 +1459,7 @@
 
       <div class="plan">
         <div class="plan__name">Pakiet Szybki Start</div>
+        <div class="plan__old-price">197 zł</div>
         <div class="plan__amount">97 zł</div>
         <div class="plan__value">jednorazowo</div>
         <ul class="plan__features">
@@ -1445,9 +1472,13 @@
         <p class="plan__guarantee">🔒 Bezpieczna płatność</p>
       </div>
 
+      <div class="plans-group">
+        <div class="plans-group__label">Pakiet Nowoczesny Nauczyciel — wybierz formę płatności</div>
+
       <div class="plan plan--featured">
         <div class="plan__badge">Najlepsza wartość</div>
-        <div class="plan__name">Pakiet Nowoczesny Nauczyciel</div>
+        <div class="plan__name">Jednorazowo</div>
+        <div class="plan__old-price">694 zł</div>
         <div class="plan__amount">297 zł</div>
         <div class="plan__value" style="color:rgba(255,255,255,.35)">wartość 479 zł</div>
 
@@ -1468,7 +1499,8 @@
 
       <div class="plan plan--installment">
         <div class="plan__badge plan__badge--purple">Na raty</div>
-        <div class="plan__name" style="color:rgba(168,139,250,.6)">Pakiet Nowoczesny Nauczyciel</div>
+        <div class="plan__name" style="color:rgba(168,139,250,.6)">Na raty · 3 płatności</div>
+        <div class="plan__old-price" style="color:rgba(168,139,250,.4)">3 × 231 zł</div>
         <div class="plan__installment-price">
           <span class="plan__install-x">3 ×</span>
           <span class="plan__amount">99 zł</span>
@@ -1489,6 +1521,8 @@
         <a href="#" class="plan__cta" style="background:#7c3aed" target="_blank" rel="noopener">Wybieram raty →</a>
         <p class="plan__guarantee" style="color:rgba(168,139,250,.35)">🔒 Bezpieczna płatność</p>
       </div>
+
+      </div><!-- /plans-group -->
 
     </div>
   </div>
