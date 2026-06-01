@@ -497,13 +497,15 @@
     .ss-card {
       border-radius: 16px; padding: 20px 18px;
       font-size: .84rem; line-height: 1.65;
-      transition: transform .25s, box-shadow .25s;
+      transition: box-shadow .25s;
+      transform-style: preserve-3d;
+      will-change: transform;
     }
-    .ss-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.15); }
     .ss-card--dark { background: #1a1c2e; color: rgba(255,255,255,.9); }
     .ss-card--dark .ss-source { color: rgba(255,255,255,.35); }
-    .ss-card--light { background: #fff; border: 1px solid var(--border); color: var(--text); }
-    .ss-card--light .ss-source { color: var(--muted); }
+    .ss-card--light { background: #fff; border: 1px solid rgba(32,34,77,.12); color: #1a1c2e; }
+    .ss-card--light .ss-source { color: #6b7080; }
+    .ss-card--light .ss-name { color: #20224d !important; }
     .ss-avatar {
       width: 32px; height: 32px; border-radius: 50%;
       background: var(--grad); display: flex; align-items: center; justify-content: center;
@@ -512,7 +514,6 @@
     .ss-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .ss-name { font-weight: 700; font-size: .82rem; }
     .ss-card--dark .ss-name { color: #fff; }
-    .ss-card--light .ss-name { color: var(--navy); }
     .ss-source { font-size: .72rem; margin-top: 12px; display: flex; align-items: center; gap: 5px; }
 
     /* ─── CTA MID ─── */
@@ -1466,6 +1467,25 @@
       }, 650);
     });
   }
+
+  // ── 3D TILT: TESTIMONIAL + STAT CARDS ──
+  document.querySelectorAll('.ss-card, .stat-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      card.style.transform = `perspective(700px) rotateY(${x * 12}deg) rotateX(${-y * 10}deg) translateY(-6px) scale(1.02)`;
+      card.style.transition = 'box-shadow .2s';
+      card.style.boxShadow = card.classList.contains('ss-card--light')
+        ? '0 16px 48px rgba(32,34,77,.15)'
+        : '0 16px 48px rgba(0,0,0,.35)';
+    }, { passive: true });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .3s';
+      card.style.transform  = '';
+      card.style.boxShadow  = '';
+    });
+  });
 
   // ── 3D TILT: PROGRAM CARDS ──
   document.querySelectorAll('.mod-card').forEach(card => {
