@@ -305,40 +305,85 @@
     }
     .platform-chip__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
-    /* ─── INSTRUCTOR ─── */
-    .instructor { background: rgba(255,255,255,0.02); padding: 100px 0; border-top: 1px solid var(--border); }
-    .instructor__heading { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: 56px; }
-    .sticky-scroll__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    @media (max-width: 860px) { .sticky-scroll__inner { grid-template-columns: 1fr; gap: 0; } }
-    .sticky-scroll__photo { position: sticky; top: 110px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    @media (max-width: 860px) { .sticky-scroll__photo { position: static; max-width: 320px; margin: 0 auto 48px; } }
-    .sticky-photo-frame { position: relative; width: 100%; max-width: 420px; }
-    .sticky-photo-bg {
-      position: absolute; inset: 24px -24px -24px 24px;
-      border-radius: 20px; background: rgba(58,176,127,.08);
-      border: 1px solid var(--green-border); z-index: 0;
+    /* ─── INSTRUCTOR SCROLL-PHOTO ─── */
+    .instructor { border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .instructor-header { max-width: 1160px; margin: 0 auto; padding: 80px 28px 0; }
+    .instructor__heading { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 900; color: #fff; }
+    .sp-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr;
     }
-    .sticky-photo-img { position: relative; z-index: 1; width: 100%; border-radius: 18px; object-fit: cover; display: block; box-shadow: var(--shadow); }
-    .sticky-photo-caption { text-align: center; font-size: .85rem; color: var(--muted); }
-    .sticky-photo-caption strong { display: block; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; font-size: .95rem; margin-bottom: 2px; }
-    .sticky-scroll__content { display: flex; flex-direction: column; gap: 0; padding-top: 20px; }
-    .sticky-item {
-      min-height: 40vh; display: flex; flex-direction: column; justify-content: center;
-      padding: 40px 0; border-bottom: 1px solid var(--border);
-      opacity: .25; transform: translateY(16px);
-      transition: opacity .5s ease, transform .5s ease;
+    .sp-sticky {
+      position: sticky; top: 0; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 40px 60px 0;
     }
-    .sticky-item:last-child { border-bottom: none; }
-    .sticky-item.active { opacity: 1; transform: translateY(0); }
-    .sticky-item__icon { font-size: 2.2rem; margin-bottom: 16px; display: block; line-height: 0; }
-    .sticky-item__title { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -.02em; }
-    .sticky-item__stat { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
-    .sticky-item__desc { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 460px; }
-    .sticky-item__desc strong { color: rgba(255,255,255,.8); font-weight: 600; }
+    .sp-stack {
+      position: relative; width: 100%; max-width: 400px;
+      aspect-ratio: 3/4;
+    }
+    .sp-slide {
+      position: absolute; inset: 0; border-radius: 24px; overflow: hidden;
+      transform: translateY(70px) scale(.95);
+      opacity: 0;
+      transition: transform .75s cubic-bezier(.4,0,.2,1), opacity .75s cubic-bezier(.4,0,.2,1);
+      will-change: transform, opacity;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6);
+    }
+    .sp-slide img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .sp-slide.active { transform: translateY(0) scale(1); opacity: 1; z-index: 2; }
+    .sp-slide.prev   { transform: translateY(-50px) scale(.97); opacity: 0; z-index: 1; }
+    .sp-badge {
+      position: absolute; bottom: 20px; left: 20px; right: 20px;
+      background: rgba(10,12,30,.75); backdrop-filter: blur(16px);
+      border: 1px solid rgba(81,235,172,.25); border-radius: 14px;
+      padding: 12px 16px; z-index: 3;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity .5s .35s, transform .5s .35s;
+    }
+    .sp-slide.active .sp-badge { opacity: 1; transform: translateY(0); }
+    .sp-badge__icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--grad); display: flex; align-items: center;
+      justify-content: center; font-size: .9rem; flex-shrink: 0;
+    }
+    .sp-badge__text { font-family: 'Montserrat', sans-serif; font-size: .76rem; font-weight: 700; color: #fff; line-height: 1.3; }
+    .sp-badge__sub  { font-size: .68rem; color: rgba(255,255,255,.45); font-weight: 400; }
+    .sp-content {
+      padding: 100px 0 100px 40px;
+      display: flex; flex-direction: column;
+    }
+    .sp-item {
+      min-height: 75vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .sp-item:last-child { border-bottom: none; }
+    .sp-item__num {
+      font-family: 'Montserrat', sans-serif; font-size: .65rem; font-weight: 800;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin-bottom: 20px;
+    }
+    .sp-item__title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; color: #fff;
+      line-height: 1.1; letter-spacing: -.02em; margin-bottom: 18px;
+    }
+    .sp-item__text { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 440px; margin-bottom: 24px; }
+    .sp-item__stat {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.05); border: 1px solid var(--border);
+      border-radius: 12px; padding: 12px 18px;
+      font-family: 'Montserrat', sans-serif; font-size: .85rem; font-weight: 700; color: rgba(255,255,255,.75);
+    }
+    .sp-item__stat strong {
+      font-size: 1.4rem;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
     @media (max-width: 860px) {
-      .instructor { padding: 64px 0; }
-      .sticky-item { min-height: unset; opacity: 1; transform: none; padding: 28px 0; }
-      .sticky-item:first-child { border-top: 1px solid var(--border); }
+      .sp-inner { grid-template-columns: 1fr; }
+      .sp-sticky { display: none; }
+      .sp-content { padding: 60px 0; }
+      .sp-item { min-height: unset; padding: 36px 0; }
     }
 
     /* ─── PROBLEM ─── */
@@ -659,6 +704,58 @@
     .reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: .3s; }
     .reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: .4s; }
 
+    /* ─── CURSOR GLOW ─── */
+    .cursor-glow {
+      pointer-events: none; position: fixed; z-index: 0;
+      width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,176,127,.11) 0%, transparent 68%);
+      transform: translate(-50%, -50%);
+      will-change: left, top;
+      transition: opacity .3s;
+    }
+    @media (hover: none) { .cursor-glow { display: none; } }
+
+    /* ─── MOD-CARD EMOJI ─── */
+    .mod-card__emoji {
+      font-size: 2.2rem; display: block; margin-bottom: 14px;
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+      line-height: 1;
+    }
+    .mod-card:hover .mod-card__emoji { transform: scale(1.25) rotate(-8deg); }
+    .mod-card { transform-style: preserve-3d; }
+
+    /* ─── MOBILE: sp-stack jako swipe gallery ─── */
+    @media (max-width: 860px) {
+      .sp-mobile-gallery {
+        display: flex; overflow-x: auto; gap: 16px;
+        padding: 32px 28px 40px; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .sp-mobile-gallery::-webkit-scrollbar { display: none; }
+      .sp-mobile-card {
+        flex: 0 0 72vw; max-width: 280px; scroll-snap-align: center;
+        border-radius: 20px; overflow: hidden; position: relative;
+        box-shadow: 0 16px 48px rgba(0,0,0,.5);
+      }
+      .sp-mobile-card img { width: 100%; height: 380px; object-fit: cover; object-position: top; display: block; }
+      .sp-mobile-badge {
+        position: absolute; bottom: 16px; left: 12px; right: 12px;
+        background: rgba(10,12,30,.8); backdrop-filter: blur(12px);
+        border: 1px solid rgba(81,235,172,.2); border-radius: 12px;
+        padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+      }
+      .sp-mobile-badge__icon { font-size: 1.1rem; flex-shrink: 0; }
+      .sp-mobile-badge__text { font-family: 'Montserrat', sans-serif; font-size: .72rem; font-weight: 700; color: #fff; line-height: 1.3; }
+      .sp-mobile-badge__sub { font-size: .65rem; color: rgba(255,255,255,.45); }
+      .sp-content-mobile { padding: 0 28px 80px; }
+      .sp-item-mobile { padding: 32px 0; border-bottom: 1px solid var(--border); }
+      .sp-item-mobile:last-child { border-bottom: none; }
+      .sp-item-mobile .sp-item__num { margin-bottom: 12px; }
+      .sp-item-mobile .sp-item__title { font-size: 1.5rem; margin-bottom: 12px; }
+      .sp-item-mobile .sp-item__text { font-size: .95rem; margin-bottom: 16px; }
+    }
+
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
       .section-label { display: block; text-align: center; }
@@ -672,6 +769,7 @@
   </style>
 </head>
 <body>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ═══ TOP BAR ═══ -->
 <div class="top-bar">
@@ -770,42 +868,114 @@
 
 <!-- ═══ INSTRUCTOR ═══ -->
 <section class="instructor">
-  <div class="container">
+
+  <div class="instructor-header">
     <h2 class="instructor__heading reveal">Kto będzie Cię uczył?</h2>
-    <div class="sticky-scroll__inner">
+  </div>
 
-      <div class="sticky-scroll__photo">
-        <div class="sticky-photo-frame">
-          <div class="sticky-photo-bg"></div>
-          <img src="2O9A0688.jpg" alt="Klaudia Rogalska-Kalota" class="sticky-photo-img">
-        </div>
-        <div class="sticky-photo-caption">
-          <strong>Klaudia Rogalska-Kalota</strong>
-          Twórczyni Akademii Nauczyciela Online
-        </div>
-      </div>
+  <!-- DESKTOP: sticky scroll -->
+  <div class="sp-inner">
 
-      <div class="sticky-scroll__content" id="instructor-content">
-        <div class="sticky-item active">
-          <span class="sticky-item__icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="10" stroke="var(--green)" stroke-width="1.8"/><path d="M14 24l-3.5 12 9.5-4.5 9.5 4.5L26 24" stroke="var(--green)" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 15l3 3 6-6" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <h3 class="sticky-item__title">Certyfikowany Edukator Google</h3>
-          <p class="sticky-item__desc">Twórczyni kursów online i <strong>założycielka Akademii Nauczyciela Online</strong>. Certyfikowany Edukator Google II stopnia, trenerka nauczycieli w ogólnopolskim projekcie Lekcja Enter i Edukacja Włączająca.</p>
+    <div class="sp-sticky">
+      <div class="sp-stack" id="spStack">
+
+        <div class="sp-slide active" data-photo="0">
+          <img src="2O9A0688.jpg" alt="Klaudia Rogalska-Kalota">
+          <div class="sp-badge">
+            <div class="sp-badge__icon">🎓</div>
+            <div class="sp-badge__text">Certyfikowany Edukator Google<br><span class="sp-badge__sub">II stopnia</span></div>
+          </div>
         </div>
-        <div class="sticky-item">
-          <span class="sticky-item__stat">12 000+</span>
-          <h3 class="sticky-item__title">przeszkolonych nauczycieli</h3>
-          <p class="sticky-item__desc">Z kursów Akademii Nauczyciela Online skorzystało blisko <strong>12 000 nauczycieli</strong>. Kursy o AI i Canvie niezmiennie od ponad 3 lat przyciągają nowych uczestników.</p>
+
+        <div class="sp-slide" data-photo="1">
+          <img src="2O9A0716.jpg" alt="Klaudia Rogalska-Kalota">
+          <div class="sp-badge">
+            <div class="sp-badge__icon">👥</div>
+            <div class="sp-badge__text">12 000+ nauczycieli<br><span class="sp-badge__sub">przeszkolonych</span></div>
+          </div>
         </div>
-        <div class="sticky-item">
-          <span class="sticky-item__stat">130 tys.</span>
-          <h3 class="sticky-item__title">obserwujących na Instagramie</h3>
-          <p class="sticky-item__desc">Na Instagramie zgromadziła <strong>130-tysięczną społeczność</strong> nauczycieli zainteresowanych nowoczesnymi technologiami w edukacji. Autorka tekstów w „Kreatywnym Wychowawcy".</p>
+
+        <div class="sp-slide" data-photo="2">
+          <img src="2O9A0761.jpg" alt="Klaudia Rogalska-Kalota">
+          <div class="sp-badge">
+            <div class="sp-badge__icon">📱</div>
+            <div class="sp-badge__text">130 tys. obserwujących<br><span class="sp-badge__sub">na Instagramie</span></div>
+          </div>
         </div>
+
+        <div class="sp-slide" data-photo="3">
+          <img src="2O9A0781.jpg" alt="Klaudia Rogalska-Kalota">
+          <div class="sp-badge">
+            <div class="sp-badge__icon">✅</div>
+            <div class="sp-badge__text">Tylko sprawdzone metody<br><span class="sp-badge__sub">testowane na szkoleniach</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <div class="sp-content" id="spContent">
+
+      <div class="sp-item" data-photo="0">
+        <div class="sp-item__num">O mnie · 01</div>
+        <h3 class="sp-item__title">Twórczyni<br>Akademii Nauczyciela<br>Online</h3>
+        <p class="sp-item__text">Certyfikowany Edukator Google II stopnia, trenerka nauczycieli w ogólnopolskim projekcie Lekcja Enter i Edukacja Włączająca. Od lat pokazuję, że technologia może być sprzymierzeńcem — nie wrogiem.</p>
+        <div class="sp-item__stat"><strong>3+</strong> lata szkoleń online</div>
+      </div>
+
+      <div class="sp-item" data-photo="1">
+        <div class="sp-item__num">O mnie · 02</div>
+        <h3 class="sp-item__title">12 000+<br>przeszkolonych<br>nauczycieli</h3>
+        <p class="sp-item__text">Z kursów Akademii skorzystało blisko 12 000 nauczycieli z całej Polski. Kursy o AI i Canvie niezmiennie od ponad 3 lat przyciągają nowych uczestników — bo są konkretne i wdrażalne od razu.</p>
+        <div class="sp-item__stat"><strong>97%</strong> uczestników poleca</div>
+      </div>
+
+      <div class="sp-item" data-photo="2">
+        <div class="sp-item__num">O mnie · 03</div>
+        <h3 class="sp-item__title">130 tys.<br>obserwujących<br>na Instagramie</h3>
+        <p class="sp-item__text">130-tysięczna społeczność nauczycieli zainteresowanych nowoczesnymi technologiami. Każdy post to gotowy przepis — bez akademickiego żargonu, od razu do klasy.</p>
+        <div class="sp-item__stat"><strong>130k</strong> w społeczności</div>
+      </div>
+
+      <div class="sp-item" data-photo="3">
+        <div class="sp-item__num">O mnie · 04</div>
+        <h3 class="sp-item__title">Uczę tylko tego,<br>co sama sprawdziłam<br>w praktyce</h3>
+        <p class="sp-item__text">Żadnej teorii bez pokrycia. Każda platforma w kursie to narzędzie, które sama używałam na szkoleniach — widzę na żywo jak reagują nauczyciele i uczniowie.</p>
+        <div class="sp-item__stat"><strong>5</strong> platform gotowych do użycia</div>
+      </div>
+
+    </div>
   </div>
+
+  <!-- MOBILE: swipe gallery + tekst -->
+  <div class="sp-mobile-gallery">
+    <div class="sp-mobile-card">
+      <img src="2O9A0688.jpg" alt="Klaudia Rogalska-Kalota">
+      <div class="sp-mobile-badge"><div class="sp-mobile-badge__icon">🎓</div><div class="sp-mobile-badge__text">Certyfikowany Edukator Google<br><span class="sp-mobile-badge__sub">II stopnia</span></div></div>
+    </div>
+    <div class="sp-mobile-card">
+      <img src="2O9A0716.jpg" alt="Klaudia Rogalska-Kalota">
+      <div class="sp-mobile-badge"><div class="sp-mobile-badge__icon">👥</div><div class="sp-mobile-badge__text">12 000+ nauczycieli<br><span class="sp-mobile-badge__sub">przeszkolonych</span></div></div>
+    </div>
+    <div class="sp-mobile-card">
+      <img src="2O9A0761.jpg" alt="Klaudia Rogalska-Kalota">
+      <div class="sp-mobile-badge"><div class="sp-mobile-badge__icon">📱</div><div class="sp-mobile-badge__text">130 tys. obserwujących<br><span class="sp-mobile-badge__sub">na Instagramie</span></div></div>
+    </div>
+    <div class="sp-mobile-card">
+      <img src="2O9A0781.jpg" alt="Klaudia Rogalska-Kalota">
+      <div class="sp-mobile-badge"><div class="sp-mobile-badge__icon">✅</div><div class="sp-mobile-badge__text">Sprawdzone metody<br><span class="sp-mobile-badge__sub">testowane na szkoleniach</span></div></div>
+    </div>
+  </div>
+
+  <div class="sp-content-mobile">
+    <div class="sp-item-mobile">
+      <div class="sp-item__num">Akademia Nauczyciela Online</div>
+      <h3 class="sp-item__title">Certyfikowany Edukator Google II stopnia</h3>
+      <p class="sp-item__text">Trenerka nauczycieli w projektach Lekcja Enter i Edukacja Włączająca. Od lat pokazuję, że technologia może być sprzymierzeńcem.</p>
+      <div class="sp-item__stat"><strong>12 000+</strong> przeszkolonych · <strong>130k</strong> Instagram</div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ═══ PROBLEM ═══ -->
@@ -872,30 +1042,35 @@
 
       <div class="mod-card">
         <span class="step-badge">Etap 1</span>
+        <span class="mod-card__emoji">🎮</span>
         <h3 class="mod-card__title">Blooket</h3>
         <p class="mod-card__desc">Koniec z nudnym A/B/C. Wdróż tryby Crypto Hack i Tower Defense — zbuduj imersyjną bazę pytań bezpośrednio w 60 sekund.</p>
       </div>
 
       <div class="mod-card">
         <span class="step-badge">Etap 2</span>
+        <span class="mod-card__emoji">⚡</span>
         <h3 class="mod-card__title">Gimkit</h3>
         <p class="mod-card__desc">Rywalizacja ekonomiczna i system ulepszeń. Uczniowie zdobywają punkty, inwestują w bonusy i zarządzają zasobami.</p>
       </div>
 
       <div class="mod-card">
         <span class="step-badge">Etap 3</span>
+        <span class="mod-card__emoji">🧩</span>
         <h3 class="mod-card__title">Quizwhizzer</h3>
         <p class="mod-card__desc">Stwórz interaktywną mapę. Uczniowie wybierają trasę (kraj, kontynent, labirynt z Canvy) i grają na tablicy.</p>
       </div>
 
       <div class="mod-card">
         <span class="step-badge">Etap 4</span>
+        <span class="mod-card__emoji">💥</span>
         <h3 class="mod-card__title">Baamboozle</h3>
         <p class="mod-card__desc">Drużyny grają telefonami w ławce. Potrzebujesz tylko rzutnika — reszta dzieje się sama. Losowe pytania, niepowtarzalny klimat.</p>
       </div>
 
       <div class="mod-card mod-card--featured">
         <span class="step-badge">Etap 5</span>
+        <span class="mod-card__emoji">🤖</span>
         <h3 class="mod-card__title">Waygroove</h3>
         <p class="mod-card__desc">Zaskocz i złam rutyny. Dostosuj każdą aktywność do specyfiki swojej grupy — więcej możliwości niż inne platformy.</p>
       </div>
@@ -1259,22 +1434,74 @@
   document.getElementById('close-privacy').addEventListener('click', () => modalPrivacy.classList.remove('open'));
   modalPrivacy.addEventListener('click', e => { if (e.target === modalPrivacy) modalPrivacy.classList.remove('open'); });
 
-  // ── INSTRUCTOR STICKY SCROLL ──
-  const items = document.querySelectorAll('.sticky-item');
-  if (items.length && window.innerWidth > 860) {
-    let raf;
-    const stickyObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          items.forEach(i => i.classList.remove('active'));
-          e.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.55 });
-    items.forEach(item => stickyObserver.observe(item));
-  } else {
-    items.forEach(i => i.classList.add('active'));
+  // ── CURSOR GLOW ──
+  const glow = document.getElementById('cursorGlow');
+  if (glow) {
+    let gx = window.innerWidth / 2, gy = window.innerHeight / 2;
+    document.addEventListener('mousemove', e => { gx = e.clientX; gy = e.clientY; }, { passive: true });
+    (function tick() {
+      glow.style.left = gx + 'px';
+      glow.style.top  = gy + 'px';
+      requestAnimationFrame(tick);
+    })();
   }
+
+  // ── 3D TILT: MOCKUP ──
+  const mockupImg = document.querySelector('.hero__mockup-img');
+  const mockupWrap = mockupImg && mockupImg.parentElement;
+  if (mockupWrap && window.innerWidth > 860) {
+    mockupWrap.addEventListener('mousemove', e => {
+      const r = mockupWrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      mockupImg.style.animationPlayState = 'paused';
+      mockupImg.style.transform = `perspective(900px) rotateY(${x * 16}deg) rotateX(${-y * 12}deg) scale(1.04)`;
+      mockupImg.style.transition = 'box-shadow .2s';
+    }, { passive: true });
+    mockupWrap.addEventListener('mouseleave', () => {
+      mockupImg.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
+      mockupImg.style.transform  = '';
+      mockupImg.style.animationPlayState = 'running';
+    });
+  }
+
+  // ── 3D TILT: PROGRAM CARDS ──
+  document.querySelectorAll('.mod-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      card.style.transform = `translateY(-6px) perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg)`;
+      card.style.transition = 'box-shadow .2s, border-color .2s';
+    }, { passive: true });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, border-color .25s';
+      card.style.transform  = '';
+    });
+  });
+
+  // ── SCROLL PHOTO SWITCHER (instructor) ──
+  (function() {
+    const spItems  = document.querySelectorAll('.sp-item[data-photo]');
+    const spSlides = document.querySelectorAll('.sp-slide');
+    if (!spItems.length || !spSlides.length) return;
+    let current = 0;
+    function setPhoto(idx) {
+      if (idx === current) return;
+      spSlides[current].classList.remove('active');
+      spSlides[current].classList.add('prev');
+      const leaving = spSlides[current];
+      setTimeout(() => leaving.classList.remove('prev'), 800);
+      current = idx;
+      spSlides[current].classList.add('active');
+    }
+    const spObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) setPhoto(parseInt(e.target.dataset.photo));
+      });
+    }, { threshold: 0.5 });
+    spItems.forEach(item => spObserver.observe(item));
+  })();
 </script>
 
 </body>
