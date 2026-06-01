@@ -192,6 +192,33 @@
       .hero__proof { justify-content: center; }
     }
 
+    /* ─── HERO ENTRANCE ANIMATIONS ─── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroPop {
+      from { opacity: 0; transform: scale(.7); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes heroSlideRight {
+      from { opacity: 0; transform: translateX(60px) scale(.95); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    .hi-1, .hi-2, .hi-3, .hi-4, .hi-5, .hi-6 {
+      opacity: 0;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+      animation-duration: .7s;
+    }
+    .hi-1 { animation-name: heroPop;       animation-delay: .05s; }
+    .hi-2 { animation-name: heroFadeUp;    animation-delay: .18s; }
+    .hi-3 { animation-name: heroFadeUp;    animation-delay: .32s; }
+    .hi-4 { animation-name: heroFadeUp;    animation-delay: .44s; }
+    .hi-5 { animation-name: heroFadeUp;    animation-delay: .56s; }
+    .hi-6 { animation-name: heroSlideRight; animation-delay: .22s; animation-duration: .85s; }
+
     .hero__badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--green-bg);
@@ -942,22 +969,22 @@
   <div class="container" style="display:contents">
     <div class="hero__left" style="padding: 0 0 0 max(28px, calc((100vw - 1160px)/2 + 28px)); position:relative; z-index:1">
 
-      <div class="hero__badge">
+      <div class="hero__badge hi-1">
         <span class="hero__badge-dot"></span>
         Kurs online · 2026
       </div>
 
-      <h1 class="hero__course-name">Lekcja na<br><span>Autopilocie</span></h1>
+      <h1 class="hero__course-name hi-2">Lekcja na<br><span>Autopilocie</span></h1>
 
-      <p class="hero__title">
+      <p class="hero__title hi-3">
         Opanuj 5 platform quiz-AI w 120 minut i generuj angażujące aktywności na każdą lekcję.
       </p>
 
-      <p class="hero__sub">
+      <p class="hero__sub hi-4">
         Bez żmudnego ręcznego wklejania. Bez godzin spędzonych przy Kahoocie. Wdrażasz od razu po obejrzeniu.
       </p>
 
-      <div class="hero__cta-row">
+      <div class="hero__cta-row hi-5">
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKr5IE1hBd4Utq4nkevUiY" class="btn btn--green" target="_blank" rel="noopener">Kupuję Szybki Start — 97 zł →</a>
         <a href="#program" class="btn btn--ghost">Zobacz program</a>
       </div>
@@ -979,7 +1006,7 @@
 
     <div class="hero__right" style="padding: 0 max(28px, calc((100vw - 1160px)/2 + 28px)) 0 0; position:relative; z-index:1; display:flex; align-items:center; justify-content:center;">
 
-      <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
+      <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img hi-6">
 
     </div>
   </div>
