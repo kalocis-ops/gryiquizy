@@ -733,9 +733,9 @@
     .pricing__grid { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; margin-top: 56px; max-width: 1160px; }
     @media (max-width: 960px) { .pricing__grid { grid-template-columns: 1fr; max-width: 600px; } }
     .plan--installment {
-      background: linear-gradient(145deg, #16194a 0%, #1e2260 100%);
-      border-color: rgba(81,235,172,0.55);
-      box-shadow: 0 0 40px rgba(58,176,127,.18), inset 0 1px 0 rgba(81,235,172,.2);
+      background: linear-gradient(145deg, #0d1235 0%, #141852 100%);
+      border-color: rgba(81,235,172,0.45);
+      box-shadow: 0 0 32px rgba(58,176,127,.15), inset 0 1px 0 rgba(81,235,172,.15);
     }
     .plan__badge--purple {
       background: var(--green);
@@ -759,32 +759,33 @@
     }
     .plans-group {
       position: relative;
-      border: 1px solid rgba(81,235,172,0.25);
+      border: 1.5px solid rgba(81,235,172,0.4);
       border-radius: 28px;
-      padding: 48px 20px 20px;
+      padding: 52px 20px 20px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      background: rgba(81,235,172,0.03);
+      box-shadow: 0 0 60px rgba(58,176,127,.08);
     }
     .plans-group__label {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
       white-space: nowrap;
-      background: var(--bg2);
-      border: 1px solid rgba(81,235,172,0.3);
-      border-radius: 100px; padding: 4px 18px;
+      background: var(--green);
+      border-radius: 100px; padding: 5px 20px;
       font-family: 'Montserrat', sans-serif; font-size: .68rem; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase;
-      color: rgba(255,255,255,.45);
+      color: #fff;
     }
     @media (max-width: 600px) {
       .plans-group { grid-template-columns: 1fr; padding: 44px 16px 16px; }
     }
     .plan {
-      background: rgba(81,235,172,0.05); border: 1px solid var(--border);
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
       border-radius: 24px; padding: 36px 32px; position: relative;
     }
     .plan--featured {
-      background: linear-gradient(145deg, #16194a 0%, #1e2260 100%);
+      background: linear-gradient(145deg, #0d1235 0%, #141852 100%);
       border-color: rgba(81,235,172,0.55);
-      box-shadow: 0 0 40px rgba(58,176,127,.18), inset 0 1px 0 rgba(81,235,172,.2);
+      box-shadow: 0 0 48px rgba(58,176,127,.25), inset 0 1px 0 rgba(81,235,172,.25);
     }
     .plan__badge {
       position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
@@ -1116,7 +1117,7 @@
 
       <div class="hi-6" style="width:100%">
         <div class="hero__mockup-frame">
-          <img src="mockupgry.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
+          <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
         </div>
       </div>
 
