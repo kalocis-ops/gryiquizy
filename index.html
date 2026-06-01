@@ -787,6 +787,11 @@
       border-color: rgba(81,235,172,0.55);
       box-shadow: 0 0 48px rgba(58,176,127,.25), inset 0 1px 0 rgba(81,235,172,.25);
     }
+    .plan--starter {
+      background: linear-gradient(145deg, #0b2318 0%, #0e2d1e 100%);
+      border-color: rgba(58,176,127,0.55);
+      box-shadow: 0 0 48px rgba(58,176,127,.2), inset 0 1px 0 rgba(81,235,172,.2);
+    }
     .plan__badge {
       position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
       background: var(--green); color: #fff;
@@ -1458,7 +1463,8 @@
 
     <div class="pricing__grid reveal-stagger" style="margin-left:auto; margin-right:auto">
 
-      <div class="plan">
+      <div class="plan plan--starter">
+        <div class="plan__badge" style="background:var(--green)">Szybki Start</div>
         <div class="plan__name">Pakiet Szybki Start</div>
         <div class="plan__old-price">197 zł</div>
         <div class="plan__amount">97 zł</div>
