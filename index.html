@@ -612,6 +612,12 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 2.4rem;
     }
+    .bonus__mockup {
+      width: 340px; flex-shrink: 0;
+      border-radius: 16px; display: block;
+      filter: drop-shadow(0 16px 40px rgba(0,0,0,.4));
+    }
+    @media (max-width: 860px) { .bonus__mockup { width: 100%; max-width: 360px; margin: 0 auto; } }
     .bonus__content { flex: 1; min-width: 220px; }
     .bonus__label { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; display: block; }
     .bonus__title { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 800; color: #fff; margin-bottom: 10px; }
@@ -1268,7 +1274,7 @@
 <section class="bonus">
   <div class="container">
     <div class="bonus__card reveal">
-      <div class="bonus__emoji-wrap">🎁</div>
+      <img src="mockupgry2.png" alt="E-book 30 darmowych gier i aktywności" class="bonus__mockup">
       <div class="bonus__content">
         <span class="bonus__label">Bonus dostępny od razu</span>
         <h3 class="bonus__title">E-book: „30 darmowych gier i aktywności dla każdej klasy"</h3>
