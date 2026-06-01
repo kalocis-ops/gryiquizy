@@ -733,12 +733,12 @@
     .pricing__grid { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; margin-top: 56px; max-width: 1160px; }
     @media (max-width: 960px) { .pricing__grid { grid-template-columns: 1fr; max-width: 600px; } }
     .plan--installment {
-      background: linear-gradient(145deg, #1a1650 0%, #251a6a 100%);
-      border-color: rgba(168,139,250,0.55);
-      box-shadow: 0 0 40px rgba(139,92,246,.18), inset 0 1px 0 rgba(168,139,250,.2);
+      background: linear-gradient(145deg, #16194a 0%, #1e2260 100%);
+      border-color: rgba(81,235,172,0.55);
+      box-shadow: 0 0 40px rgba(58,176,127,.18), inset 0 1px 0 rgba(81,235,172,.2);
     }
     .plan__badge--purple {
-      background: #7c3aed;
+      background: var(--green);
     }
     .plan__installment-price {
       display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px;
@@ -748,7 +748,7 @@
       color: rgba(255,255,255,.5);
     }
     .plan__install-total {
-      font-size: .82rem; color: rgba(168,139,250,.7); margin-bottom: 28px;
+      font-size: .82rem; color: rgba(255,255,255,.35); margin-bottom: 28px;
     }
     .plan__old-price {
       font-family: 'Montserrat', sans-serif;
@@ -1499,27 +1499,27 @@
 
       <div class="plan plan--installment">
         <div class="plan__badge plan__badge--purple">Na raty</div>
-        <div class="plan__name" style="color:rgba(168,139,250,.6)">Na raty · 3 płatności</div>
-        <div class="plan__old-price" style="color:rgba(168,139,250,.4)">3 × 231 zł</div>
+        <div class="plan__name" style="color:rgba(255,255,255,.4)">Na raty · 3 płatności</div>
+        <div class="plan__old-price">3 × 231 zł</div>
         <div class="plan__installment-price">
           <span class="plan__install-x">3 ×</span>
           <span class="plan__amount">99 zł</span>
         </div>
         <div class="plan__install-total">łącznie 297 zł · bez odsetek</div>
 
-        <div class="plan__bonus-box" style="border-color:rgba(168,139,250,0.4); background:linear-gradient(135deg,rgba(124,58,237,0.18),rgba(139,92,246,0.08))">
-          <div class="plan__bonus-tag" style="color:rgba(196,169,255,.9)">🎓 Dodatkowy kurs w cenie</div>
+        <div class="plan__bonus-box">
+          <div class="plan__bonus-tag">🎓 Dodatkowy kurs w cenie</div>
           <div class="plan__bonus-name">AI w edukacji 2.0</div>
-          <div class="plan__bonus-val">wartość regularna: <strong style="color:rgba(196,169,255,.9)">479 zł</strong></div>
+          <div class="plan__bonus-val">wartość regularna: <strong>479 zł</strong></div>
         </div>
 
-        <ul class="plan__features" style="--border:rgba(168,139,250,0.15)">
-          <li style="border-bottom-color:rgba(168,139,250,0.15)"><span class="plan__check">✓</span> Wszystko z Pakietu Szybki Start</li>
-          <li style="border-bottom-color:rgba(168,139,250,0.15)"><span class="plan__check">✓</span> Automatyzacja biurokracji szkolnej z AI</li>
+        <ul class="plan__features">
+          <li><span class="plan__check">✓</span> Wszystko z Pakietu Szybki Start</li>
+          <li><span class="plan__check">✓</span> Automatyzacja biurokracji szkolnej z AI</li>
           <li style="border-bottom:none"><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szk.</li>
         </ul>
-        <a href="#" class="plan__cta" target="_blank" rel="noopener">Wybieram raty →</a>
-        <p class="plan__guarantee" style="color:rgba(168,139,250,.35)">🔒 Bezpieczna płatność</p>
+        <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdZFbIE1hBd4UtqIGsp7PE2" class="plan__cta" target="_blank" rel="noopener">Wybieram raty →</a>
+        <p class="plan__guarantee" style="color:rgba(255,255,255,.25)">🔒 Bezpieczna płatność</p>
       </div>
 
       </div><!-- /plans-group -->
