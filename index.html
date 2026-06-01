@@ -725,6 +725,9 @@
     .mod-card { transform-style: preserve-3d; }
 
     /* ─── MOBILE: sp-stack jako swipe gallery ─── */
+    .sp-mobile-gallery,
+    .sp-content-mobile { display: none; }
+
     @media (max-width: 860px) {
       .sp-mobile-gallery {
         display: flex; overflow-x: auto; gap: 16px;
@@ -1073,6 +1076,13 @@
         <span class="mod-card__emoji">🤖</span>
         <h3 class="mod-card__title">Waygroove</h3>
         <p class="mod-card__desc">Zaskocz i złam rutyny. Dostosuj każdą aktywność do specyfiki swojej grupy — więcej możliwości niż inne platformy.</p>
+      </div>
+
+      <div class="mod-card">
+        <span class="step-badge">Bonus</span>
+        <span class="mod-card__emoji">🎁</span>
+        <h3 class="mod-card__title">E-book: 50 stron z grami</h3>
+        <p class="mod-card__desc">Gotowa baza linków do bezpłatnych gier edukacyjnych — posortowana według przedmiotów. Cały rok szkolny z głowy.</p>
       </div>
 
     </div>
@@ -1449,19 +1459,24 @@
   // ── 3D TILT: MOCKUP ──
   const mockupImg = document.querySelector('.hero__mockup-img');
   const mockupWrap = mockupImg && mockupImg.parentElement;
-  if (mockupWrap && window.innerWidth > 860) {
+  if (mockupWrap && window.matchMedia('(hover: hover)').matches) {
+    mockupWrap.style.cursor = 'pointer';
     mockupWrap.addEventListener('mousemove', e => {
       const r = mockupWrap.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width  - .5;
       const y = (e.clientY - r.top)  / r.height - .5;
-      mockupImg.style.animationPlayState = 'paused';
-      mockupImg.style.transform = `perspective(900px) rotateY(${x * 16}deg) rotateX(${-y * 12}deg) scale(1.04)`;
-      mockupImg.style.transition = 'box-shadow .2s';
+      mockupImg.style.animation = 'none';
+      mockupImg.style.transition = 'transform .08s linear, box-shadow .2s';
+      mockupImg.style.transform = `perspective(900px) rotateY(${x * 18}deg) rotateX(${-y * 14}deg) scale(1.05)`;
     }, { passive: true });
     mockupWrap.addEventListener('mouseleave', () => {
       mockupImg.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
-      mockupImg.style.transform  = '';
-      mockupImg.style.animationPlayState = 'running';
+      mockupImg.style.transform  = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
+      setTimeout(() => {
+        mockupImg.style.animation = '';
+        mockupImg.style.transform = '';
+        mockupImg.style.transition = '';
+      }, 650);
     });
   }
 
