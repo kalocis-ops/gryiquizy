@@ -864,6 +864,35 @@
     }
     .plan__bonus-val strong { color: var(--green-l); font-weight: 700; }
 
+    /* ─── BONUS ACCORDION ─── */
+    .plan__bonus-toggle {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      border-top: 1px solid rgba(81,235,172,.2); margin-top: 12px; padding-top: 10px;
+      font-size: .72rem; font-weight: 700; color: var(--green-l);
+      cursor: pointer; user-select: none;
+      transition: color .2s;
+    }
+    .plan__bonus-toggle:hover { color: #fff; }
+    .plan__bonus-arrow {
+      font-size: .58rem; flex-shrink: 0;
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+    }
+    .plan__bonus-toggle.open .plan__bonus-arrow { transform: rotate(180deg); }
+    .plan__bonus-body {
+      overflow: hidden; max-height: 0;
+      transition: max-height .38s ease;
+    }
+    .plan__bonus-body.open { max-height: 260px; }
+    .plan__bonus-body ul {
+      list-style: none; padding: 10px 0 2px; margin: 8px 0 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .plan__bonus-body li {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 4px 0; font-size: .72rem; color: rgba(255,255,255,.65); line-height: 1.5;
+    }
+    .plan__bonus-body li .bc { color: var(--green); font-weight: 700; flex-shrink: 0; }
+
     /* ─── FAQ ─── */
     .faq { padding: 100px 0; background: transparent; border-top: 1px solid var(--border); }
     .faq-list { max-width: 720px; margin: 56px auto 0; }
@@ -1552,7 +1581,19 @@
         <div class="plan__bonus-box">
           <div class="plan__bonus-tag">🎓 Dodatkowy kurs w cenie</div>
           <div class="plan__bonus-name">AI w edukacji 2.0</div>
-          <div class="plan__bonus-val">wartość regularna: <strong>479 zł</strong></div>
+          <div class="plan__bonus-val">wartość regularna: <strong>497 zł</strong></div>
+          <button class="plan__bonus-toggle" aria-expanded="false">
+            Co zawiera ten kurs? <span class="plan__bonus-arrow">▼</span>
+          </button>
+          <div class="plan__bonus-body">
+            <ul>
+              <li><span class="bc">✓</span>66 lekcji video (7 godzin nagrań)</li>
+              <li><span class="bc">✓</span>9 modułów: chatboty, grafiki AI, ocenianie, wideo…</li>
+              <li><span class="bc">✓</span>8 gotowych asystentów AI do użycia od razu</li>
+              <li><span class="bc">✓</span>Certyfikat ukończenia</li>
+              <li><span class="bc">✓</span>Dostęp na zawsze + aktualizacje</li>
+            </ul>
+          </div>
         </div>
 
         <ul class="plan__features">
@@ -1577,7 +1618,19 @@
         <div class="plan__bonus-box">
           <div class="plan__bonus-tag">🎓 Dodatkowy kurs w cenie</div>
           <div class="plan__bonus-name">AI w edukacji 2.0</div>
-          <div class="plan__bonus-val">wartość regularna: <strong>479 zł</strong></div>
+          <div class="plan__bonus-val">wartość regularna: <strong>497 zł</strong></div>
+          <button class="plan__bonus-toggle" aria-expanded="false">
+            Co zawiera ten kurs? <span class="plan__bonus-arrow">▼</span>
+          </button>
+          <div class="plan__bonus-body">
+            <ul>
+              <li><span class="bc">✓</span>66 lekcji video (7 godzin nagrań)</li>
+              <li><span class="bc">✓</span>9 modułów: chatboty, grafiki AI, ocenianie, wideo…</li>
+              <li><span class="bc">✓</span>8 gotowych asystentów AI do użycia od razu</li>
+              <li><span class="bc">✓</span>Certyfikat ukończenia</li>
+              <li><span class="bc">✓</span>Dostęp na zawsze + aktualizacje</li>
+            </ul>
+          </div>
         </div>
 
         <ul class="plan__features">
@@ -1754,6 +1807,17 @@
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── BONUS ACCORDION ──
+  document.querySelectorAll('.plan__bonus-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const body = toggle.nextElementSibling;
+      const isOpen = toggle.classList.contains('open');
+      toggle.classList.toggle('open', !isOpen);
+      body.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 
