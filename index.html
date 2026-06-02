@@ -1046,13 +1046,60 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
-      .section-label { display: block; text-align: center; }
+      /* Section label: keep pill shape (fit-content + auto margin) */
+      .section-label { display: block; width: fit-content; margin-left: auto; margin-right: auto; margin-bottom: 14px; text-align: center; }
       .section-title { text-align: center; }
       .section-sub { text-align: center; margin: 0 auto; }
       .instructor__heading { text-align: center; }
       .sticky-item { text-align: center; }
       .sticky-item__desc { margin: 0 auto; }
       .footer__inner { flex-direction: column; align-items: center; }
+
+      /* Bonus: stack vertically and center */
+      .bonus__card { flex-direction: column; align-items: center; text-align: center; padding: 40px 24px; gap: 24px; }
+      .bonus__content { text-align: center; }
+
+      /* Problem bridge: center CTA button */
+      .problem__bridge { text-align: center; }
+      .problem__bridge .btn { margin: 0 auto; }
+
+      /* Section vertical padding: less on mobile */
+      .problem, .program, .bonus, .testimonials,
+      .pricing, .faq, .final-cta { padding-top: 60px; padding-bottom: 60px; }
+      .video-section { padding: 60px 0; }
+
+      /* Final CTA box: reduce padding */
+      .final-cta__box { padding: 48px 24px; }
+    }
+
+    /* ─── PRICING MOBILE FIXES ─── */
+    @media (max-width: 600px) {
+      /* Allow label to wrap instead of overflowing */
+      .plans-group__label {
+        white-space: normal;
+        max-width: calc(100% - 40px);
+        text-align: center;
+        line-height: 1.4;
+        padding: 6px 16px;
+      }
+      /* Reduce plan card inner padding */
+      .plan { padding: 28px 18px; }
+      /* Allow badge and CTA to wrap */
+      .plan__badge { white-space: normal; text-align: center; line-height: 1.3; }
+      .plan__cta { white-space: normal; line-height: 1.3; }
+    }
+
+    /* ─── VERY SMALL PHONES (≤400px) ─── */
+    @media (max-width: 400px) {
+      .container { padding: 0 16px; }
+      .plan { padding: 22px 14px; }
+      .plan__amount { font-size: 2.4rem; }
+      .plans-group { padding: 48px 12px 12px; }
+      /* Countdown digits tighter */
+      .countdown-wrap { gap: 6px; }
+      .cd-unit { padding: 10px 8px; min-width: 52px; }
+      .cd-num { font-size: 1.4rem; }
+      .cd-sep { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -1134,7 +1181,7 @@
 
       <div class="hi-6" style="width:100%">
         <div class="hero__mockup-frame">
-          <img src="mockup3.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
+          <img src="mockup2.png" alt="Lekcja na Autopilocie — mockup kursu" class="hero__mockup-img">
         </div>
       </div>
 
@@ -1483,9 +1530,8 @@
         <div class="plan__amount">127 zł</div>
         <div class="plan__value">jednorazowo</div>
         <ul class="plan__features">
-          <li><span class="plan__check">✓</span> Kurs „Lekcja na Autopilocie" (5 lekcji, 120 min)</li>
+          <li><span class="plan__check">✓</span> Kurs „Lekcja na Autopilocie" (6 lekcji, 120 min)</li>
           <li><span class="plan__check">✓</span> E-book „30 darmowych gier i aktywności dla każdej klasy"</li>
-          <li><span class="plan__check">✓</span> Gotowe prompty weryfikujące błędy AI</li>
           <li><span class="plan__check">✓</span> Dostęp do materiałów na zawsze</li>
         </ul>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1Tdmw4IE1hBd4UtqLmPVjnSN" class="plan__cta" target="_blank" rel="noopener">Kupuję Szybki Start →</a>
@@ -1511,8 +1557,8 @@
 
         <ul class="plan__features">
           <li><span class="plan__check">✓</span> Wszystko z Pakietu Szybki Start</li>
-          <li><span class="plan__check">✓</span> Automatyzacja biurokracji szkolnej z AI</li>
-          <li><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szk.</li>
+          <li><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szkolnym</li>
+          <li><span class="plan__check">✓</span> Dostęp do aktualizacji i nowych narzędzi AI</li>
         </ul>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKusIE1hBd4UtqARQshrwl" class="plan__cta" target="_blank" rel="noopener">Wybieram Nowoczesny Nauczyciel →</a>
         <p class="plan__guarantee" style="color:rgba(255,255,255,.25)">🔒 Bezpieczna płatność</p>
@@ -1536,8 +1582,8 @@
 
         <ul class="plan__features">
           <li><span class="plan__check">✓</span> Wszystko z Pakietu Szybki Start</li>
-          <li><span class="plan__check">✓</span> Automatyzacja biurokracji szkolnej z AI</li>
-          <li style="border-bottom:none"><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szk.</li>
+          <li><span class="plan__check">✓</span> Setki godzin oszczędności w nowym roku szkolnym</li>
+          <li style="border-bottom:none"><span class="plan__check">✓</span> Dostęp do aktualizacji i nowych narzędzi AI</li>
         </ul>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdZFbIE1hBd4UtqIGsp7PE2" class="plan__cta" target="_blank" rel="noopener">Wybieram raty →</a>
         <p class="plan__guarantee" style="color:rgba(255,255,255,.25)">🔒 Bezpieczna płatność</p>
@@ -1661,7 +1707,7 @@
 
 <script>
   // ── TIMER ──
-  const DEADLINE = new Date('2026-06-02T10:00:00').getTime();
+  const DEADLINE = new Date('2026-06-08T23:59:59').getTime();
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
