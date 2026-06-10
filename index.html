@@ -1139,14 +1139,7 @@
 
 <!-- ═══ TOP BAR ═══ -->
 <div class="top-bar">
-  <span class="top-bar__label">🔥 Kończy się za:</span>
-  <div class="top-bar__cd">
-    <div class="top-bar__cd-unit"><span id="tb-d">07</span><em>d</em></div>
-    <span class="top-bar__sep">:</span>
-    <div class="top-bar__cd-unit"><span id="tb-h">00</span><em>h</em></div>
-    <span class="top-bar__sep">:</span>
-    <div class="top-bar__cd-unit"><span id="tb-m">00</span><em>m</em></div>
-  </div>
+  <span class="top-bar__label">🔥 Oferta specjalna — tylko przez chwilę!</span>
   <a href="#cennik" class="top-bar__cta">Kup kurs →</a>
 </div>
 
@@ -1694,16 +1687,6 @@
       <h2 class="final-cta__title">Zajmij swoje miejsce teraz</h2>
       <p class="final-cta__sub">Oferta kończy się 2 czerwca o 10:00. Ucz się w wakacje, wdrażaj we wrześniu.</p>
 
-      <div class="countdown-wrap">
-        <div class="cd-unit"><span class="cd-num" id="cd-d">07</span><span class="cd-label">dni</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-h">00</span><span class="cd-label">godz</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-m">00</span><span class="cd-label">min</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-s">00</span><span class="cd-label">sek</span></div>
-      </div>
-
       <div class="final-cta__btns">
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1Tdmw4IE1hBd4UtqLmPVjnSN" class="btn btn--green" target="_blank" rel="noopener">Kupuję Szybki Start — 127 zł →</a>
         <a href="https://cart.easy.tools/checkout/54778299/lekcja-na-autopilocie-gry-i-aplikacje-z-ai-pod-twoj-przedmiot?plan=price_1TdKusIE1hBd4UtqARQshrwl" class="btn btn--dark" target="_blank" rel="noopener">Nowoczesny Nauczyciel — 297 zł</a>
@@ -1761,40 +1744,6 @@
 </div>
 
 <script>
-  // ── TIMER ──
-  const DEADLINE = new Date('2026-06-08T23:59:59').getTime();
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
-  function updateTimers() {
-    const now = Date.now();
-    const diff = Math.max(0, DEADLINE - now);
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-
-    // top bar
-    const tbD = document.getElementById('tb-d');
-    const tbH = document.getElementById('tb-h');
-    const tbM = document.getElementById('tb-m');
-    if (tbD) tbD.textContent = pad(d);
-    if (tbH) tbH.textContent = pad(h);
-    if (tbM) tbM.textContent = pad(m);
-
-    // countdown
-    const cdD = document.getElementById('cd-d');
-    const cdH = document.getElementById('cd-h');
-    const cdM = document.getElementById('cd-m');
-    const cdS = document.getElementById('cd-s');
-    if (cdD) cdD.textContent = pad(d);
-    if (cdH) cdH.textContent = pad(h);
-    if (cdM) cdM.textContent = pad(m);
-    if (cdS) cdS.textContent = pad(s);
-  }
-
-  updateTimers();
-  setInterval(updateTimers, 1000);
 
   // ── NAV SCROLL ──
   const nav = document.getElementById('nav');
